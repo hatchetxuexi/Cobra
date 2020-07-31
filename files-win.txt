@@ -1,0 +1,243 @@
+### Volexity Surge Collect Pro file collection configuration file - 20191210
+# Gather the MFT from any NTFS drive on the system (note: will also grab attached drives like USB) and the logfile
+%NTFS%:\$MFT
+%NTFS%:\$logfile
+
+# PerfLogs
+C:\PerfLogs\*
+
+# Scheduled Task Files and Folders
+%SystemRoot%\Tasks\**
+%SystemRoot%\System32\Tasks\**
+
+# System Registry Hives, backup register hives, and older *Evt logs
+
+%SystemRoot%\System32\config\**
+
+# Event Logs from non XP/Win2k3 systems
+
+%SystemRoot%\system32\winevt\logs\*.evtx
+
+# Collect Prefetch and Appcompat files  from systems that support it
+%SystemRoot%\prefetch\**
+%SystemRoot%\appcompat\**
+
+# Hibernation file
+%NTFS%:\hiberfil.sys
+
+%NTFS%:\pagefile.sys
+
+# Collect files in the root of ProgramData
+
+C:\ProgramData\*
+
+# User Hives
+
+C:\Users\*\NTUSER.DAT
+C:\Users\*\AppData\Local\Microsoft\Windows\UsrClass.dat
+C:\Documents and Settings\*\NTUSER.DAT
+C:\Documents and Settings\*\Local Settings\Application Data\Microsoft\Windows\UsrClass.dat
+
+C:\Users\*\AppData\Local\Microsoft\Internet Explorer\**
+C:\Users\*\AppData\Local\Microsoft\Windows\History\**
+C:\Users\*\AppData\Local\Microsoft\Windows\AppCache\**
+
+# WMI repository files
+%SystemRoot%\System32\wbem\repository\objects.data
+%SystemRoot%\System32\wbem\repository\fs\objects.data
+
+# Collect any file in the root of the recycle bin
+
+%NTFS%:\$Recycle.Bin\**
+%NTFS%:\RECYCLER\**
+
+# Collect McAfee Quarantine files
+
+C:\Quarantine\*.bup
+
+# collect suspect files in the Temp directory (or change to C:\Temp\** to collect all files)
+C:\Temp\*.vbs
+C:\Temp\*.bat
+C:\Temp\*.ps1
+C:\Temp\*.js
+
+# Collect Web / FTP / other logs
+C:\WINDOWS\system32\LogFiles\**
+C:\Inetpub\Logs\LogFiles\**
+
+#Collect Windows System Resource Usage Monitor (SRUM) Windows 8+
+%SystemRoot%\System32\sru\*
+
+#Collect Windows powershell command history (PSReadline)
+C:\Users\*\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\*
+
+#Collect artifacts from users startup folder
+C:\Users\*\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\*
+
+#Collect artifacts from startup folder
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\*
+
+#Collect Firefox user profiles
+C:\Users\*\AppData\Roaming\Mozilla\Firefox\Profiles\**
+
+#Collect Chrome user history
+C:\Users\*\AppData\Local\Google\Chrome\User Data\Default\**
+
+#Collect users recent data
+C:\Users\*\AppData\Roaming\Microsoft\Windows\Recent\**
+
+#Collect entire folder for user of interest - uncomment the line below and insert the username
+#C:\Users\<PLACE USERNAME HERE>\**
+
+# Windows 10 - "All Installed Apps", *.srd is a sqlite database
+# ref: https://boncaldoforensics.wordpress.com/2018/10/07/all-installed-apps-artifact-windows-10-forensics/ 
+C:\ProgramData\Microsoft\Windows\AppRepository\*
+
+# Windows 10 - Saved clipboard data, not on by default
+C:\Users\*\AppData\Local\Microsoft\Windows\clipboard\**
+
+# Windows 10 - AcitivitiesCcache.db
+# ref & tool: https://binaryforay.blogspot.com/2018/05/introducing-wxtcmd.html
+C:\Users\*\AppData\Local\ConnectedDevicesPlatform\*\ActivitiesCache.db
+
+# Windows 10 - Windows Error Reporting
+C:\Users\*\AppData\Local\Microsoft\Windows\WER\ReportArchive\**
+
+# Windows - SRUM
+# ref: https://github.com/MarkBaggett/srum-dump
+C:\Windows\System32\sru\SRUDB.dat
+
+# collect files/locations that should usually be empty or limited in what filesare  present
+C:\Windows\ime\*.exe
+C:\Windows\tracing\*
+C:\windows\tapi\*
+C:\Windows\Temp\**
+C:\Users\Public\**
+C:\Windows\addins\*
+C:\Intel\*
+
+C:\Windows\Minidump\*.dmp
+
+C:\Windows\AppCompat\Programs\Amcache.hve
+
+
+
+
+
+
+C:\Users\*\*.png
+C:\Users\*\Documents\**\*.png
+C:\Users\*\Downloads\**\*.png
+C:\Users\*\Desktop\**\*.png
+C:\Users\*\*.jpg
+C:\Users\*\Documents\**\*.jpg
+C:\Users\*\Downloads\**\*.jpg
+C:\Users\*\Desktop\**\*.jpg
+C:\Users\*\*.jpeg
+C:\Users\*\Documents\**\*.jpeg
+C:\Users\*\Downloads\**\*.jpeg
+C:\Users\*\Desktop\**\*.jpeg
+C:\Users\*\*.gif
+C:\Users\*\Documents\**\*.gif
+C:\Users\*\Downloads\**\*.gif
+C:\Users\*\Desktop\**\*.gif
+C:\Users\*\*.tiff
+C:\Users\*\Documents\**\*.tiff
+C:\Users\*\Downloads\**\*.tiff
+C:\Users\*\Desktop\**\*.tiff
+C:\Users\*\*.svg
+C:\Users\*\Documents\**\*.svg
+C:\Users\*\Downloads\**\*.svg
+C:\Users\*\Desktop\**\*.svg
+C:\Users\*\*.bmp
+C:\Users\*\Documents\**\*.bmp
+C:\Users\*\Downloads\**\*.bmp
+C:\Users\*\Desktop\**\*.bmp
+C:\Users\*\*.pdf
+C:\Users\*\Documents\**\*.pdf
+C:\Users\*\Downloads\**\*.pdf
+C:\Users\*\Desktop\**\*.pdf
+C:\Users\*\*.doc*
+C:\Users\*\Documents\**\*.doc*
+C:\Users\*\Downloads\**\*.doc*
+C:\Users\*\Desktop\**\*.doc*
+C:\Users\*\*.docx
+C:\Users\*\Documents\**\*.docx
+C:\Users\*\Downloads\**\*.docx
+C:\Users\*\Desktop\**\*.docx
+C:\Users\*\*.rtf
+C:\Users\*\Documents\**\*.rtf
+C:\Users\*\Downloads\**\*.rtf
+C:\Users\*\Desktop\**\*.rtf
+C:\Users\*\*.pps*
+C:\Users\*\Documents\**\*.pps*
+C:\Users\*\Downloads\**\*.pps*
+C:\Users\*\Desktop\**\*.pps*
+C:\Users\*\*.ppt*
+C:\Users\*\Documents\**\*.ppt*
+C:\Users\*\Downloads\**\*.ppt*
+C:\Users\*\Desktop\**\*.ppt*
+C:\Users\*\*.xls*
+C:\Users\*\Documents\**\*.xls*
+C:\Users\*\Downloads\**\*.xls*
+C:\Users\*\Desktop\**\*.xls*
+C:\Users\*\*.od*
+C:\Users\*\Documents\**\*.od*
+C:\Users\*\Downloads\**\*.od*
+C:\Users\*\Desktop\**\*.od*
+C:\Users\*\*.ot*
+C:\Users\*\Documents\**\*.ot*
+C:\Users\*\Downloads\**\*.ot*
+C:\Users\*\Desktop\**\*.ot*
+C:\Users\*\*.plist
+C:\Users\*\Documents\**\*.plist
+C:\Users\*\Downloads\**\*.plist
+C:\Users\*\Desktop\**\*.plist
+C:\Users\*\*.sqlite*
+C:\Users\*\Documents\**\*.sqlite*
+C:\Users\*\Downloads\**\*.sqlite*
+C:\Users\*\Desktop\**\*.sqlite*
+C:\Users\*\*.db*
+C:\Users\*\Documents\**\*.db*
+C:\Users\*\Downloads\**\*.db*
+C:\Users\*\Desktop\**\*.db*
+C:\Users\*\*.zip
+C:\Users\*\Documents\**\*.zip
+C:\Users\*\Downloads\**\*.zip
+C:\Users\*\Desktop\**\*.zip
+C:\Users\*\*.7z
+C:\Users\*\Documents\**\*.7z
+C:\Users\*\Downloads\**\*.7z
+C:\Users\*\Desktop\**\*.7z
+C:\Users\*\*.rar
+C:\Users\*\Documents\**\*.rar
+C:\Users\*\Downloads\**\*.rar
+C:\Users\*\Desktop\**\*.rar
+C:\Users\*\*.tar
+C:\Users\*\Documents\**\*.tar
+C:\Users\*\Downloads\**\*.tar
+C:\Users\*\Desktop\**\*.tar
+C:\Users\*\*.tar.gz
+C:\Users\*\Documents\**\*.tar.gz
+C:\Users\*\Downloads\**\*.tar.gz
+C:\Users\*\Desktop\**\*.tar.gz
+C:\Users\*\*.tar.bz*
+C:\Users\*\Documents\**\*.tar.bz*
+C:\Users\*\Downloads\**\*.tar.bz*
+C:\Users\*\Desktop\**\*.tar.bz*
+C:\Users\*\*.gz
+C:\Users\*\Documents\**\*.gz
+C:\Users\*\Downloads\**\*.gz
+C:\Users\*\Desktop\**\*.gz
+C:\Users\*\*.tgz
+C:\Users\*\Documents\**\*.tgz
+C:\Users\*\Downloads\**\*.tgz
+C:\Users\*\Desktop\**\*.tgz
+C:\Users\*\*.bz*
+C:\Users\*\Documents\**\*.bz*
+C:\Users\*\Downloads\**\*.bz*
+C:\Users\*\Desktop\**\*.bz*
+C:\Users\*\*.txt
+C:\Users\*\Documents\**\*.txt
+C:\Users\*\Downloads\**\*.txt
+C:\Users\*\Desktop\**\*.txt
